@@ -1,9 +1,0 @@
-div {
-	display: inline-block;
-	border: 1px solid black;
-}
-
-p {
-	float: left;
-	word-wrap: break;
-}
