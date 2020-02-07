@@ -1,0 +1,41 @@
+p:hover {
+	background-color:#f774f2;
+}
+
+.lineByLineTranslations {
+	
+	display: flex;
+	justify-content: center;
+	float: clear;
+}
+
+.lineByLineTranslations div {
+	width: 45%;
+	margin: 1%;
+	float:left;
+}
+
+.inlineTranslations {
+	display: flex;
+	justify-content: center;
+	float: clear;	
+}
+
+.inlineTranslations div {
+	width: 45%;
+	margin: 1%;
+	float:left;
+}
+
+.angularInlineTranslations {
+	display: flex;
+	justify-content: center;
+	float: clear;
+	background-color:#f774f2;
+}
+
+.angularInlineTranslations div {
+	width: 45%;
+	margin: 1%;
+	float:left;
+}
