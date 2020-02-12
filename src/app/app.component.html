@@ -1,46 +1,37 @@
-<a href="https://github.com/nith822/TransSample"> source code </a>
+<a href="https://github.com/nith822/TransSample/tree/master/src/app"> source code </a>
+
 <div>
-	<div class="lineByLineTranslations">
-		<div class="originalText">
-			<p *ngFor="let text of this.originalTexts"
-				[textContent]="text">
+	<p class= "sidebarButton"(click)="sidebarOpened = true" *ngIf="!sidebarOpened">
+		&#9776;
+	</p> 
+	<div class = "sidebar" [ngClass]="{ 'sidebaropened': sidebarOpened}">
+		<div *ngIf="this.currentTranslation">
+			<button> {{this.currentTranslation.getText(false)}} </button>
+			<button> {{this.currentTranslation.getText(true)}} </button>
+			<button 
+				(click)="this.currentTranslation.upDownVote[0]=1 + this.currentTranslation.upDownVote[0]"> 
+				Upvote: {{this.currentTranslation.upDownVote[0] }}
+			</button>
+			<button
+				(click)="this.currentTranslation.upDownVote[1]=1 + this.currentTranslation.upDownVote[1]"> 
+				Downvote: {{this.currentTranslation.upDownVote[1] }}
+			</button>
+			<p *ngFor="let comment of this.currentTranslation.comments">
+				{{ comment }}
 			</p>
 		</div>
-		
-		<div class="translatedText">
-			<p *ngFor="let translation of this.translations"
-				[textContent]="translation.getText(true)">
-			</p>
-		</div>
-	
+		<button (click)="sidebarOpened = false"><b> &times;</b></button>
 	</div>
-	
-	<div class="inlineTranslations">
-		<div class="originalText">
-			<span *ngFor="let translation of this.translations"
-				[textContent]="translation.getText(false)"
-				(mouseenter)="translation.hovered = true"
-				(mouseleave)="translation.hovered = false"
-				[ngStyle]="{'background-color': translation.hovered? '#AFFFFF' :'#FFFFFF'}">
-			</span>
-		</div>
-		
-		<div class="translatedText">
-			<span *ngFor="let translation of this.translations"
-				[textContent]="translation.getText(true)"
-				(mouseenter)="translation.hovered = true"
-				(mouseleave)="translation.hovered = false"
-				[ngStyle]="{'background-color': translation.hovered? '#AFFFFF' :'#FFFFFF'}">
-			</span>
-		</div>
-	</div>
-	
-	
-	<div class="angularInlineTranslations">
+</div>
+
+
+<div>
+	<div class="angularTranslations">
 		<div class="originalText">
 			<translation *ngFor="let translation of this.translations"
 				[translation]="translation"
 				[displayOriginal]="true"
+				(clicked)="this.translationClicked($event)"
 			>
 			</translation>
 		</div>
@@ -49,7 +40,30 @@
 			<translation *ngFor="let translation of this.translations"
 				[translation]="translation"
 				[displayOriginal]="false"
+				(clicked)="this.translationClicked($event)"
 			>
 			</translation>
 		</div>
 	</div>
+	
+	<div class="angularTranslations">
+		<div class="originalText">
+			<div *ngFor="let translation of this.translations">
+				<translation
+					[translation]="translation"
+					[displayOriginal]="true"
+					(clicked)="this.translationClicked($event)" >
+				</translation>
+			</div>
+		</div>
+		<div class="translatedText">
+			<div *ngFor="let translation of this.translations">
+				<translation
+					[translation]="translation"
+					[displayOriginal]="false"
+					(clicked)="this.translationClicked($event)">
+				</translation>
+			</div>
+		</div>
+	</div>
+</div>

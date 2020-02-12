@@ -1,13 +1,19 @@
 export class Translation {
 	
+	
 	originalText: string;
 	translatedText: string;
+	comments: string[];
+	upDownVote: number[];
 	
 	hovered: boolean = false; 
 	
-	constructor(originalText: string, translatedText: string) {
+	//not lazy loaded
+	constructor(originalText: string, translatedText: string, upDownVote?: number[], comments?: string[] ) {
 		this.originalText = originalText;
 		this.translatedText = translatedText;
+		this.comments = comments;
+		this.upDownVote = upDownVote;
 	}
 	
 	getText(isOriginal: boolean): string {

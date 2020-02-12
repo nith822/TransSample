@@ -1,6 +1,9 @@
-<span
-	[textContent]="this.translation.getText(this.displayOriginal)"
-	(mouseenter)="this.translation.hovered = true"
-	(mouseleave)="this.translation.hovered = false"
-	[ngStyle]="{'background-color': this.translation.hovered? '#AFFFFF' :'#FFFFFF'}">
+<span class="text">
+	<span
+		(click)="this.clicked.emit(this.translation)"
+		[textContent]="this.getTextString()"
+		(mouseenter)="this.translation.hovered = true"
+		(mouseleave)="this.translation.hovered = false"
+		[ngStyle]="{'background-color': this.translation.hovered? '#AFFFFF' : this.getBackgroundColor()}">
+	</span>
 </span>

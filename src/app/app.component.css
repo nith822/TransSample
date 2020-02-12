@@ -2,40 +2,47 @@ p:hover {
 	background-color:#f774f2;
 }
 
-.lineByLineTranslations {
-	
+.angularTranslations {
 	display: flex;
 	justify-content: center;
-	float: clear;
+	background-color:#F73CDE;
 }
 
-.lineByLineTranslations div {
+.angularTranslations div {
 	width: 45%;
 	margin: 1%;
 	float:left;
 }
 
-.inlineTranslations {
-	display: flex;
-	justify-content: center;
-	float: clear;	
-}
-
-.inlineTranslations div {
-	width: 45%;
-	margin: 1%;
+.angularTranslations div div {
+	width: 98%;
 	float:left;
 }
 
-.angularInlineTranslations {
-	display: flex;
-	justify-content: center;
-	float: clear;
-	background-color:#f774f2;
+.sidebar {
+	display: none;
+	position: absolute;
+	background-color:#AFFFFF;
 }
 
-.angularInlineTranslations div {
-	width: 45%;
-	margin: 1%;
+.sidebar.sidebaropened {
+	width: 95%;
+	height: 50%;
+	display: block;
+    transform: translate(0px, 200px);
+}
+
+.sidebar div button {
+	padding:8px 16px;
+	width:100%;
+	border: 1 px solid black;
+	text-align:center;
+}
+
+.sidebar div p {
+	padding:1px 2px;
 	float:left;
+	width:100%;
+	border: 1 px solid black;
+	text-align:center;
 }
